@@ -11,6 +11,11 @@ TagManager:
   - Ship
   - Ball
   - Plane
+  - Viento
+  - Llama
+  - Papel
+  - Invisible
+  - Trituradora
   layers:
   - Default
   - TransparentFX
