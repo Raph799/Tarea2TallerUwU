@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Animator animator;
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     private bool isJumping = false;
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -28,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        // Actualizar el parámetro "Move" en el Animator
+        animator.SetFloat("Move", Mathf.Abs(moveDirection));
 
         // Salto
         if (Input.GetButtonDown("Jump") && !isJumping)
@@ -58,3 +63,4 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
     }
 }
+
